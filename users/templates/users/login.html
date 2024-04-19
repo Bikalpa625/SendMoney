@@ -1,0 +1,23 @@
+{% extends "users/base.html" %}
+{% block content %}
+    <div class="content-section">
+        <form method="POST">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend>Log In</legend>
+                {{ form.as_p }}
+
+            </fieldset>
+            <div>
+                <button type="submit">Login</button>
+            </div>
+        </form>
+        <div>
+            <small><a href="#">froget password?</a></small>
+        </div>
+        <div>
+            <small>Not a member?  <a href="{% url 'register' %}">Create An Account?</a></small>
+        </div>
+    </div>
+
+{% endblock content %}
