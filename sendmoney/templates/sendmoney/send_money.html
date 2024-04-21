@@ -1,0 +1,19 @@
+<!-- templates/send_money.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Send Money Online</title>
+</head>
+<body>
+    <h1>Send Money Online</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+       
+        <br> 
+        <button type="submit" > Send Money</button>
+    </form>
+</body>
+</html>
+
