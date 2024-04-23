@@ -31,4 +31,10 @@ urlpatterns = [
     path('password-reset-complete/', auth_view.PasswordResetCompleteView.as_view(template_name='users/password_reset_complete.html'), name="password_reset_complete"),
     path('sendmoney/',include('sendmoney.urls')),
     path('send_money/',views.send_money, name='send_money'),
+    path('about_us/', views.about_us, name='about_us'),
+    path('track-transfer/', views.track_transfer,name='track_transfer'),
+    path('testimonial/', views.testimonial,name='testimonial'),
+    path('contact/', views.contact,name='contact'),
+
+
 ]

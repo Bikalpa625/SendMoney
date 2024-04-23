@@ -2,6 +2,7 @@
 from django import forms
 from .models import Transaction
 
+
 class TransactionForm(forms.ModelForm):
     PAYMENT_CHOICES = [
         ('account','Account Payment'),
@@ -14,3 +15,5 @@ class TransactionForm(forms.ModelForm):
         model = Transaction
         fields = ['sender_country', 'receiver_country', 'amount']
         exclude = ['payment_method']
+
+
