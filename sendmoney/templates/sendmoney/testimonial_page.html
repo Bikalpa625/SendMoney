@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Testimonials</title>
+</head>
+<body>
+    <h1>Testimonials</h1>
+    {% for testimonial in testimonials %}
+    <div>
+        <p><strong>{{ testimonial.name }}</strong> ({{ testimonial.date }})</p>
+        <p>{{ testimonial.testimonial_text }}</p>
+    </div>
+    {% endfor %} 
+</body>
+</html>

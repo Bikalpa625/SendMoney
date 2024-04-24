@@ -18,15 +18,18 @@ def send_money(request):
         form = TransactionForm()
     return render(request, 'sendmoney/send_money.html', {'form': form})
 
-
+@login_required
 def about_us(request):
     return render(request, 'sendmoney/about_us.html')
 
+@login_required
 def track_transfer(request):
     return render(request, 'sendmoney/track_transfer.html')
 
+@login_required
 def testimonial(request):
     return render(request, 'sendmoney/testimonial.html')
 
+@login_required
 def contact(request):
     return render(request, 'sendmoney/contact.html')
