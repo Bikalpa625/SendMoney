@@ -4,10 +4,18 @@ from .forms import TransactionForm
 from .forms import ContactForm
 from django.core.mail import send_mail
 from django.conf import settings
+from .models import Testimonial
+from .forms import TestimonialForm
+from django.shortcuts import get_object_or_404
+from django.http import HttpResponseForbidden
+
 
 @login_required
 def homepage(request):
     return render(request,'sendmoney/homepage.html')
+
+
+
 
 @login_required
 def send_money(request):
@@ -21,17 +29,84 @@ def send_money(request):
         form = TransactionForm()
     return render(request, 'sendmoney/send_money.html', {'form': form})
 
+
+
+
+
 @login_required
 def about_us(request):
     return render(request, 'sendmoney/about_us.html')
+
+
+
+
 
 @login_required
 def track_transfer(request):
     return render(request, 'sendmoney/track_transfer.html')
 
+
+
+
+
+
 @login_required
-def testimonial(request):
-    return render(request, 'sendmoney/testimonial.html')
+def testimonial_list(request):
+    testimonials = Testimonial.objects.all()
+    return render(request, 'sendmoney/testimonial_list.html', {'testimonials': testimonials})
+
+
+
+
+def testimonial_create(request):
+    if request.method == 'POST':
+        form = TestimonialForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('testimonial_list')
+    else:
+        form = TestimonialForm()
+    return render(request, 'sendmoney/testimonial_form.html', {'form': form})
+
+
+
+
+
+@login_required
+def testimonial_update(request, pk):
+    testimonial = get_object_or_404(Testimonial,pk=pk)
+    if not request.user.is_superuser and testimonial.author != request.user:
+        # Return a response indicating permission denied
+        return HttpResponseForbidden("You do not have permission to update this testimonial.")
+
+    if request.method == 'POST':
+        form = TestimonialForm(request.POST, instance=testimonial)
+        if form.is_valid():
+            form.save()
+            return redirect('testimonial_list')
+    else:
+        form = TestimonialForm(instance=testimonial)
+    return render(request, 'sendmoney/testimonial_form.html', {'form': form})
+
+
+
+
+@login_required
+def testimonial_delete(request, pk):
+    testimonial = get_object_or_404(Testimonial,pk=pk)
+    if not request.user.is_superuser and testimonial.author != request.user:
+        return HttpResponseForbidden("You do not have permission to delete this testimonial.")
+    
+    testimonial.delete()
+    return redirect('testimonial_list')
+
+
+
+
+
+
+
+
 
 @login_required
 def contact(request):

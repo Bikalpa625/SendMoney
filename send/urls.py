@@ -34,8 +34,12 @@ urlpatterns = [
     path('homepage/', views.homepage, name='homepage'),
     path('about_us/', views.about_us, name='about_us'),
     path('track-transfer/', views.track_transfer,name='track_transfer'),
-    path('testimonial/', views.testimonial,name='testimonial'),
+    
     path('contact/', views.contact,name='contact'),
+    path('testimonial_list/', views.testimonial_list,name='testimonial_list'),
+    path('create/', views.testimonial_create,name='testimonial_create'),
+    path('update/<int:pk>/', views.testimonial_update,name='testimonial_update'),
+    path('delete/<int:pk>/', views.testimonial_delete,name='testimonial_delete'),
 
 
 ]

@@ -3,10 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hamepage</title>
+    <title>Hamepage</title>     
 </head>
 <body>
-    <a href="{% url 'logout'%}">Logout</a>
+    <header class="header">
+        <div class="container">
+            <div class="contact-info">Contact: 1234567890</div>
+            <nav class="navigation">
+                <ul>
+                    <li><a href="#">Help</a></li>
+                    <li><a href="#">English</a></li>
+                    <li><a href="{% url 'logout'%}">Login / Register</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
     
     <nav class="navbar">
     <h1>Hamepage</h1>
@@ -15,7 +26,7 @@
             <li><a href="{% url 'about_us'%}">About Us</a></li>
             <li><a href="{% url 'send_money' %}">Send Money</a></li>
             <li><a href="{% url 'track_transfer'%}">Track Transfer</a></li>
-            <li><a href="{% url 'testimonial'%}">Testimonial</a></li>
+            <li><a href="{% url 'testimonial_list'%}">Testimonial</a></li>
             <li><a href="{% url 'contact'%}">Contact</a></li>
         </ul>
     </nav>
