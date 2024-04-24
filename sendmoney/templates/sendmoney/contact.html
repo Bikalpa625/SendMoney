@@ -9,4 +9,13 @@
             <li><a href="{% url 'contact'%}">Contact</a></li>
         </ul>
     </nav>
-<h1>Contact</h1>
+
+
+    <h1>Send Your Message</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit autem, tenetur, doloremque totam, nihil rerum placeat consequatur asperiores earum porro odio. Ad incidunt modi nesciunt natus nihil rem dicta fugit!</p>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Send Message</button>
+        
+    </form>
