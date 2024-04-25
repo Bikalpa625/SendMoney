@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from .forms import TransactionForm
+
 from .forms import ContactForm
 from django.core.mail import send_mail
 from django.conf import settings
@@ -16,18 +16,10 @@ def homepage(request):
 
 
 
-
-@login_required
 def send_money(request):
-    if request.method == 'POST':
-        form = TransactionForm(request.POST)
-        if form.is_valid():
-            form.save()
-            # Handle money transfer logic
-            return render(request, 'sendmoney/success.html')
-    else:
-        form = TransactionForm()
-    return render(request, 'sendmoney/send_money.html', {'form': form})
+    return render(request, 'sendmoney/send_money.html')
+
+
 
 
 
