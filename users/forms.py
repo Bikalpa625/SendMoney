@@ -3,20 +3,21 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 
 class UserRegisterForm(UserCreationForm):
-    firstname=forms.CharField()
-    middlename=forms.CharField()
-    lastname=forms.CharField()
-    DOB=forms.DateField(required=False,input_formats='%d-%m-%Y')
-    email=forms.EmailField()
-    street_Address=forms.CharField()
-    city=forms.CharField()
-    state=forms.CharField()
-    zipcode=forms.IntegerField()
-    mobile_number=forms.IntegerField()
+    first_name = forms.CharField(max_length=100)
+    middle_name = forms.CharField(max_length=100)
+    last_name = forms.CharField(max_length=100)
+    username = forms.CharField(max_length=100  )
+    email = forms.EmailField()
+    street_address = forms.CharField(max_length=255)
+    city = forms.CharField(max_length=100)
+    state = forms.CharField(max_length=100)
+    zip_code = forms.CharField(max_length=10)
+    mobile_number = forms.CharField(max_length=15)
+    
 
     class Meta:
         model=User
-        fields=['firstname','middlename','lastname','DOB','username','password1','password2','email','street_Address','city','state','zipcode','mobile_number']
+        fields=['first_name','middle_name','last_name','username','password1','password2','email','street_address','city','state','zip_code','mobile_number']
 
 
 
