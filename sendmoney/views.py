@@ -41,65 +41,6 @@ def track_transfer(request):
 
 
 
-
-@login_required
-def testimonial_list(request):
-    testimonials = Testimonial.objects.all()
-    return render(request, 'sendmoney/testimonial_list.html', {'testimonials': testimonials})
-
-
-
-
-def testimonial_create(request):
-    if request.method == 'POST':
-        form = TestimonialForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('testimonial_list')
-    else:
-        form = TestimonialForm()
-    return render(request, 'sendmoney/testimonial_form.html', {'form': form})
-
-
-
-
-
-@login_required
-def testimonial_update(request, pk):
-    testimonial = get_object_or_404(Testimonial,pk=pk)
-    if not request.user.is_superuser and testimonial.author != request.user:
-        # Return a response indicating permission denied
-        return HttpResponseForbidden("You do not have permission to update this testimonial.")
-
-    if request.method == 'POST':
-        form = TestimonialForm(request.POST, instance=testimonial)
-        if form.is_valid():
-            form.save()
-            return redirect('testimonial_list')
-    else:
-        form = TestimonialForm(instance=testimonial)
-    return render(request, 'sendmoney/testimonial_form.html', {'form': form})
-
-
-
-
-@login_required
-def testimonial_delete(request, pk):
-    testimonial = get_object_or_404(Testimonial,pk=pk)
-    if not request.user.is_superuser and testimonial.author != request.user:
-        return HttpResponseForbidden("You do not have permission to delete this testimonial.")
-    
-    testimonial.delete()
-    return redirect('testimonial_list')
-
-
-
-
-
-
-
-
-
 @login_required
 def contact(request):
     if request.method == 'POST':

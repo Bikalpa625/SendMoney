@@ -1,8 +1,6 @@
-{% extends "users/base.html" %}
-{% block content %}
+{% extends "sendmoney/base.html" %}
+{% block content %} 
     
-
-
     <h1>Send Your Message</h1>
     <form method="post">
         {% csrf_token %}
@@ -10,4 +8,4 @@
         <button type="submit">Send Message</button>
         
     </form>
-{% endblock content %}
+{% endblock content %} 
