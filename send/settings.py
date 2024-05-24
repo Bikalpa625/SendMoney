@@ -33,14 +33,14 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'users.apps.UsersConfig',
+    'users.apps.UsersConfig', #Customized
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'sendmoney.apps.SendmoneyConfig',
+    'sendmoney.apps.SendmoneyConfig', #Customized
     
 ]
 
@@ -52,6 +52,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'send.middleware.LoginRequiredMiddleware', #Customized
 ]
 
 ROOT_URLCONF = 'send.urls'
@@ -123,7 +124,7 @@ USE_TZ = True
 STATIC_URL = 'static/'
 
 STATICFILES_DIRS = [
-    BASE_DIR / "static",
+    BASE_DIR / "static", #Customized
 ]
 
 # Default primary key field type
@@ -131,15 +132,15 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-LOGIN_REDIRECT_URL = 'sendmoney-homepage'
+LOGIN_REDIRECT_URL = 'sendmoney-homepage' #Customized
 
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'bikalpashrestha1990@gmail.com'
-EMAIL_HOST_PASSWORD = 'ywmp ejql ukcj byjb'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend' #Customized
+EMAIL_HOST = 'smtp.gmail.com' #Customized
+EMAIL_PORT = 587 #Customized
+EMAIL_USE_TLS = True #Customized
+EMAIL_HOST_USER = 'bikalpashrestha1990@gmail.com' #Customized
+EMAIL_HOST_PASSWORD = 'ywmp ejql ukcj byjb' #Customized
 
 
 

@@ -13,7 +13,7 @@
         <div class="bg-gray-900 py-2 text-center text-sm text-white">
             <div class="container flex items-center justify-between px-4 md:px-28">
               <!-- Exchange Rates -->
-              <div class="flex items-center gap-2 px-2 md:pl-28">
+              <div class="flex items-center gap-2 px-2 md:pl-15">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
@@ -102,6 +102,18 @@
         
                 <!-- User Profile Picture and Burger Icon -->
                 <div class="flex items-center space-x-4">
+                    <form class="max-w-md mx-auto hidden lg:block ">   
+                      <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
+                      <div class="relative">
+                          <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                              <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+                              </svg>
+                          </div>
+                          <input type="search" id="default-search" class="block w-full p-1.5 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-white focus:ring-blue-500 focus:border-blue-500" placeholder="Search ..." required />
+                          <button type="submit" class="text-white absolute end-0 bottom-0 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Search</button>
+                      </div>
+                    </form>
                     
                     <!-- Burger Icon -->
                     <div class="lg:hidden">
@@ -137,7 +149,23 @@
                   <a href="{% url 'contact'%}" class="block px-3 py-2 rounded-md text-base font-medium text-gray-800 hover:bg-gray-200">Contact</a>
                 </div>
             </div>
+            
           </nav>
+    </div>
+    <div class="bg-gray-100 mx-48">
+      {% if messages %}
+          <div class="container mx-auto mt-4">
+              {% for message in messages %}
+                  <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+                      <strong class="font-bold">Warning:</strong>
+                      <span class="block sm:inline">{{ message }}</span>
+                      <span class="absolute top-0 bottom-0 right-0 px-4 py-3">
+                          <svg class="fill-current h-6 w-6 text-red-500 cursor-pointer" role="button" onclick="this.closest('div[role=alert]').remove();" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><title>Close</title><path d="M14.348 5.652a1 1 0 011.415 0l2 2a1 1 0 010 1.415L13.415 13l4.348 4.348a1 1 0 01-1.415 1.415l-4.348-4.348-4.348 4.348a1 1 0 01-1.415-1.415L6.585 13 2.239 8.652a1 1 0 010-1.415l2-2a1 1 0 011.415 0L10 10.585l4.348-4.348z"/></svg>
+                      </span>
+                  </div>
+              {% endfor %}
+          </div>
+      {% endif %}
     </div>
     <div class="content">
         {% block content %}
