@@ -1,7 +1,7 @@
 # money_transfer/forms.py
 from django import forms
 
-from .models import Testimonial
+
 
 
 
@@ -14,7 +14,3 @@ class ContactForm(forms.Form):
     contact_number = forms.CharField(label='Contact Number', max_length=15)
     message = forms.CharField(label='Message', widget=forms.Textarea)
 
-class TestimonialForm(forms.ModelForm):
-    class Meta:
-        model = Testimonial
-        fields = ['author', 'content']

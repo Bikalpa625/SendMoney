@@ -93,11 +93,11 @@
                 </div>
                 <!-- Navigation Links -->
                 <div class="hidden lg:flex lg:items-center lg:space-x-8">
-                    <a href="#" class="text-gray-800 hover:no-underline hover:text-gray-600 hover:border-b-2 hover:border-gray-600 transition duration-300">Home</a>
-                    <a href="#" class="text-gray-800 hover:no-underline hover:text-gray-600 hover:border-b-2 hover:border-gray-600 transition duration-300">About Us</a>
-                    <a href="#" class="text-gray-800 hover:no-underline hover:text-gray-600 hover:border-b-2 hover:border-gray-600 transition duration-300">Send Money</a>
-                    <a href="#" class="text-gray-800 hover:no-underline hover:text-gray-600 hover:border-b-2 hover:border-gray-600 transition duration-300">Track Transfer</a>
-                    <a href="#" class="text-gray-800 hover:no-underline hover:text-gray-600 hover:border-b-2 hover:border-gray-600 transition duration-300">Contact</a>
+                  <a href="{% url 'homepage' %}" class="text-gray-800 hover:no-underline hover:text-gray-600 hover:border-b-2 hover:border-gray-600 transition duration-300">Home</a>
+                  <a href="{% url 'about_us'%}" class="text-gray-800 hover:no-underline hover:text-gray-600 hover:border-b-2 hover:border-gray-600 transition duration-300">About Us</a>
+                  <a href="{% url 'send_money' %}" class="text-gray-800 hover:no-underline hover:text-gray-600 hover:border-b-2 hover:border-gray-600 transition duration-300">Send Money</a>
+                  <a href="{% url 'track_transfer'%}" class="text-gray-800 hover:no-underline hover:text-gray-600 hover:border-b-2 hover:border-gray-600 transition duration-300">Track Transfer</a>
+                  <a href="{% url 'contact'%}" class="text-gray-800 hover:no-underline hover:text-gray-600 hover:border-b-2 hover:border-gray-600 transition duration-300">Contact</a>
                 </div>
         
                 <!-- User Profile Picture and Burger Icon -->
@@ -130,11 +130,11 @@
             <!-- Mobile Menu -->
             <div id="mobile-menu" class="hidden lg:hidden">
                 <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                    <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-800 hover:bg-gray-200">Home</a>
-                    <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-800 hover:bg-gray-200">About Us</a>
-                    <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-800 hover:bg-gray-200">Send Money</a>
-                    <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-800 hover:bg-gray-200">Track Transfer</a>
-                    <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-800 hover:bg-gray-200">Contact</a>
+                  <a href="{% url 'homepage' %}" class="block px-3 py-2 rounded-md text-base font-medium text-gray-800 hover:bg-gray-200">Home</a>
+                  <a href="{% url 'about_us'%}" class="block px-3 py-2 rounded-md text-base font-medium text-gray-800 hover:bg-gray-200">About Us</a>
+                  <a href="{% url 'send_money' %}" class="block px-3 py-2 rounded-md text-base font-medium text-gray-800 hover:bg-gray-200">Send Money</a>
+                  <a href="{% url 'track_transfer'%}" class="block px-3 py-2 rounded-md text-base font-medium text-gray-800 hover:bg-gray-200">Track Transfer</a>
+                  <a href="{% url 'contact'%}" class="block px-3 py-2 rounded-md text-base font-medium text-gray-800 hover:bg-gray-200">Contact</a>
                 </div>
             </div>
           </nav>

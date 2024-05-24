@@ -7,7 +7,6 @@ class UserRegisterForm(UserCreationForm):
     middle_name = forms.CharField(max_length=100)
     last_name = forms.CharField(max_length=100)
     username = forms.CharField(max_length=100  )
-    email = forms.EmailField()
     street_address = forms.CharField(max_length=255)
     city = forms.CharField(max_length=100)
     state = forms.CharField(max_length=100)
@@ -17,7 +16,7 @@ class UserRegisterForm(UserCreationForm):
 
     class Meta:
         model=User
-        fields=['first_name','middle_name','last_name','username','password1','password2','email','street_address','city','state','zip_code','mobile_number']
+        fields=['first_name','middle_name','last_name','username','password1','password2','street_address','city','state','zip_code','mobile_number']
 
 
 

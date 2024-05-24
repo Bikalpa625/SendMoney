@@ -1,5 +1,65 @@
 {% extends "sendmoney/base.html" %}
 {% block content %}
+<div class="flex flex-col min-h-[100dvh]">
+    <section class="w-full py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-gray-800">
+        <div class="container px-4 md:px-6">
+            <div class="grid items-center gap-6 lg:grid-cols-[1fr_500px] lg:gap-12 xl:grid-cols-[1fr_550px]">
+                <div class="flex flex-col justify-center space-y-4">
+                    <div class="space-y-2">
+                        <h1 class="text-3xl font-bold tracking-tighter sm:text-5xl">Send Money Globally with Ease</h1>
+                        <p class="max-w-[600px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">Our secure and reliable money transfer service makes it simple to send money to friends, family, or businesses around the world.</p>
+                    </div>
+                    <div class="flex flex-col gap-2 min-[400px]:flex-row">
+                        <a href="#" class="inline-flex h-10 items-center justify-center rounded-md bg-gray-900 px-8 text-sm font-medium text-gray-50 shadow transition-colors hover:bg-gray-900/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:bg-gray-50 dark:text-gray-900 dark:hover:bg-gray-50/90 dark:focus-visible:ring-gray-300">Start a Transfer</a>
+                    </div>
+                </div>
+                <img src="#"  width="550" height="310" alt="Hero" class="mx-auto aspect-video overflow-hidden rounded-xl object-cover object-center sm:w-full lg:order-last">
+            </div>
+        </div>
+        <section class="w-full py-12 md:py-24 lg:py-32">
+            <div class="container grid grid-cols-1 gap-8 px-4 md:grid-cols-3 md:px-6">
+                <div class="flex flex-col items-center space-y-4 text-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-12 w-12 text-gray-900 dark:text-gray-50">
+                        <line x1="12" x2="12" y1="2" y2="22"></line>
+                         <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                    </svg>
+                    <h3 class="text-xl font-bold">Competitive Rates</h3>
+                    <p class="text-gray-500 dark:text-gray-400">We offer some of the best exchange rates in the industry, so you can send more to your loved ones.</p>
+                </div>
+                <div class="flex flex-col items-center space-y-4 text-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-12 w-12 text-gray-900 dark:text-gray-50">
+                        <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path>
+                        <path d="m9 12 2 2 4-4"></path>
+                    </svg>
+                    <h3 class="text-xl font-bold">Secure Transfers</h3>
+                    <p class="text-gray-500 dark:text-gray-400"> Your money is safe with our advanced security measures and fraud protection.</p>
+                </div>
+                <div class="flex flex-col items-center space-y-4 text-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-12 w-12 text-gray-900 dark:text-gray-50">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12 6 12 12 16 14"></polyline>
+                    </svg>
+                    <h3 class="text-xl font-bold">Fast Delivery</h3>
+                    <p class="text-gray-500 dark:text-gray-400"> Your transfers arrive quickly, so your loved ones can access their money right away.
+                    </p>
+                </div>
+            </div>
+        </section>
+        <section class="w-full py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-gray-800">
+            <div class="container grid items-center justify-center gap-4 px-4 text-center md:px-6 lg:gap-10">
+                <div class="space-y-3">
+                    <h2 class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">What Our Customers Say</h2>
+                    <p class="mx-auto max-w-[700px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400"> Hear from real people who have used our money transfer service.</p>
+                </div>
+                <div class="grid w-full grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                    <div class="rounded-lg border bg-card text-card-foreground shadow-sm" data-v0-t="card">
+                        
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+</div>
 
 
 {% endblock content %}

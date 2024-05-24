@@ -16,3 +16,14 @@ window.addEventListener("click", function(e) {
         dropdownMenu.classList.add("hidden");
     }
 });
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    var usernameInput = document.getElementById('id_username');
+    usernameInput.addEventListener('click', function() {
+        alert('You need to write an email in the username field');
+    });
+});
+
+

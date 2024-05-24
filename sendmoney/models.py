@@ -1,16 +1,14 @@
 # money_transfer/models.py
 from django.db import models
-from django.utils import timezone
+from django.db import models
+
+class Contact(models.Model):
+    name = models.CharField(max_length=100)
+    email = models.EmailField()
+    message = models.TextField()
 
 
 
 
-class Testimonial(models.Model):
-    author = models.CharField(max_length=100)
-    content = models.TextField()
-    created_at = models.DateTimeField(default=timezone.now)
-    updated_at = models.DateTimeField(auto_now=True)
 
-    def __str__(self):
-        return self.author
 
