@@ -15,8 +15,21 @@ class LoginRequiredMiddleware:
         return response
 
     def process_view(self, request, view_func, view_args, view_kwargs):
-        # Skip login, register and admin URLs
-        if not request.user.is_authenticated and request.path not in [reverse('login'), reverse('register'), reverse('admin:index')]:
-            messages.warning(request, "You need to log in to access this page.")
+        # List of URLs that don't require authentication
+        allowed_urls = [
+            reverse('login'),
+            reverse('register'),
+            reverse('password_reset'),
+            reverse('password_reset_done'),
+            reverse('password_reset_confirm', kwargs={'uidb64': 'uidb64', 'token': 'token'}),
+            reverse('password_reset_complete'),
+        ]
+
+        if request.path in allowed_urls:
+            return None
+
+        if not request.user.is_authenticated:
+            messages.warning(request, "You need to be logged in to access this page.")
             return redirect('login')
+
         return None
