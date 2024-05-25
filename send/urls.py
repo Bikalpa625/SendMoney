@@ -19,6 +19,8 @@ from django.urls import path,include
 from users import views as user_views
 from django.contrib.auth import views as auth_view
 from sendmoney import views
+from django.conf.urls.static import static
+from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -36,7 +38,4 @@ urlpatterns = [
     path('track-transfer/', views.track_transfer,name='track_transfer'),
     
     path('contact/', views.contact,name='contact'),
-    
-
-
 ]
