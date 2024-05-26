@@ -1,12 +1,50 @@
 {% extends "sendmoney/base.html" %}
 {% block content %} 
+<style>
+    /* Ensure the iframe takes up full height */
+    #map-container {
+            height: 60vh; /* Adjust height as needed */
+    }
+    #map {
+            height: 100%;
+    }
+</style>
+<div class="bg-gray-100 flex flex-col items-center py-6">
+    <div id="map-container" class="bg-white p-4 rounded-lg shadow-lg w-full max-w-4xl mb-6">
+        <iframe
+            id="map"
+            class="w-full h-full border-0 rounded-lg"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3533.7688122717965!2d85.31439701506164!3d27.717245731658452!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb1908d2625db1%3A0x69a4ac3f1ef5e4f9!2sKathmandu%2C%20Nepal!5e0!3m2!1sen!2snp!4v1620105784001!5m2!1sen!2snp"
+            allowfullscreen=""
+            loading="lazy"></iframe>
+    </div>
+    <div class="bg-white p-10 rounded-lg shadow-lg max-w-md w-full py-12">
+        <h1 class="text-2xl font-bold text-center mb-6">Send Your Message</h1>
+        <form method="post" class="space-y-4">
+            {% csrf_token %}
+            <div>
+                <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
+                <input type="text" id="name" name="name" class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm" required>
+            </div>
+            <div>
+                <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                <input type="email" id="email" name="email" class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm" required>
+            </div>
+            <div>
+                <label for="message" class="block text-sm font-medium text-gray-700">Message</label>
+                <textarea id="message" name="message" rows="4" class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm" required></textarea>
+            </div>
+            <button type="submit" class="w-full py-2 px-4 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-75">Send Message</button>
+        </form>
+    </div>
+</div>
     
-    <h1>Send Your Message</h1>
+    
+{% endblock content %} 
+<!-- <h1>Send Your Message</h1>
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">Send Message</button>
         
-    </form>
-    
-{% endblock content %} 
+    </form> -->

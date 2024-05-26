@@ -1,4 +1,5 @@
 {% extends "sendmoney/base.html" %}
+{% load static %}
 {% block content %}
 <!DOCTYPE html>
 <html lang="en">
@@ -8,8 +9,85 @@
     <title>About Us</title>
 </head>
 <body>
-    
-    <h1>About Us</h1>
+    <section class="w-full py-12 md:py-24 lg:py-32">
+        <div class="container grid items-center justify-center gap-4 px-4 md:px-6">
+            <div class="space-y-3 text-center">
+                <div class="inline-block rounded-lg bg-gray-200 px-3 py-1 text-sm font-medium dark:bg-gray-700">About Us</div>
+                <h1 class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Empowering Financial Success</h1>
+                <p class="mx-auto max-w-[700px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
+                    At our financial services company, we are dedicated to helping our clients achieve their financial goals. With a focus on personalized solutions and a commitment to integrity, we strive to be the trusted partner inyour financial journey.
+                </p>
+            </div>
+        </div>
+    </section>
+    <section class="w-full py-12 md:py-24 lg:py-32 bg-gray-100">
+        <div class="container grid grid-cols-1 md:grid-cols-2 gap-12 px-4 md:pl-20">
+            <div class="space-y-3">
+                <div class="inline-block rounded-lg bg-gray-200 px-3 py-1 text-sm font-medium">Our Mission</div>
+                <h2 class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+                    Empowering Individuals and Businesses
+                </h2>
+                <p class="text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
+                    Our mission is to empower individuals and businesses to achieve financial success through personalized
+                    guidance, innovative solutions, and a steadfast commitment to integrity.
+                </p>
+            </div>
+            <div class="space-y-3">
+                <div class="inline-block rounded-lg bg-gray-200 px-3 py-1 text-sm font-medium">
+                    Our History
+                </div>
+                <h2 class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">A Legacy of Financial Excellence</h2>
+                <p class="text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400"> 
+                    Our financial services company was founded in 1995 with the goal of providing exceptional service and tailored solutions to our clients. Over the past 25 years, we have earned a reputation for our expertise, innovation, and unwavering dedication to helping our clients reach their financial goals.
+                </p>
+            </div>
+        </div>
+    </section>
+    <section class="w-full py-12 md:py-24 lg:py-32">
+        <div class="container grid gap-12 px-4 md:px-6">
+            <div class="space-y-3 text-center">
+                <div class="inline-block rounded-lg bg-gray-200 px-3 py-1 text-sm font-medium">Meet the Team</div>
+                <h2 class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Our Dedicated Experts</h2>
+                <p class="mx-auto max-w-[700px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
+                    Our team of financial professionals is committed to providing exceptional service and tailored solutions to help you achieve your financial goals.
+                </p>
+            </div>
+            <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+                <div class="flex flex-col items-center space-y-4">
+                    <img src="{% static 'image/person.svg' %}" alt="Hero" width="120" height="120" class="rounded-full" style="aspect-ratio:120/120;object-fit:cover">
+                    <div class="space-y-1 text-center">
+                        <h3 class="text-lg font-semibold">Zenish Shrestha</h3>
+                        <p class="text-gray-600 ">CEO</p>
+                        <p class="text-sm text-gray-600 "> 
+                            Zenish has over 15 years of experience in the financial industry, with a proven track record of helping clients achieve their financial goals.
+                        </p>
+                    </div>
+                </div>
+                <div class="flex flex-col items-center space-y-4">
+                    <img src="{% static 'image/person.svg' %}" alt="Hero" width="120" height="120" class="rounded-full"
+                    style="aspect-ratio:120/120;object-fit:cover">
+                    <div class="space-y-1 text-center">
+                        <h3 class="text-lg font-semibold">Alon Prajapati</h3>
+                        <p class="text-gray-600">CFO</p>
+                        <p class="text-sm text-gray-600 ">
+                            Alon is a financial expert with a deep understanding of accounting, investment strategies, and risk management.
+                        </p>
+                    </div>
+                </div>
+                <div class="flex flex-col items-center space-y-4">
+                    <img src="{% static 'image/person.svg' %}" alt="Hero" width="120" height="120" class="rounded-full"
+                    style="aspect-ratio:120/120;object-fit:cover">
+                    <div class="space-y-1 text-center">
+                        <h3 class="text-lg font-semibold">Michael Johnson</h3>
+                        <p class="text-gray-500 dark:text-gray-400">CTO</p>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">
+                            Michael is a technology expert with a passion for building innovative financial solutions to enhance the client experience.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     
 </body>
 </html>
