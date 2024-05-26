@@ -41,6 +41,7 @@ def track_transfer(request):
 
 @login_required
 def contact(request):
+    success = False
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
@@ -63,12 +64,12 @@ def contact(request):
             sender_email = email
             recipient_list = [settings.EMAIL_HOST_USER]
             send_mail(subject, message_body, sender_email, recipient_list)
-
-            
-            return render(request, 'sendmoney/contact_success.html')  
+            form.save()
+            success = True
+            form = ContactForm()
     else:
         form = ContactForm()
-    return render(request, 'sendmoney/contact.html', {'form': form})
+    return render(request, 'sendmoney/contact.html', {'form': form, 'success': success})
    
 
 
