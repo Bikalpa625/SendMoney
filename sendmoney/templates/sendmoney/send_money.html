@@ -1,18 +1,202 @@
 {% extends "sendmoney/base.html" %}
 {% block content %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Send Money Online</title>
-</head>
-<body>
-    
-    <h1>Send Money Online</h1>
-   
+<div class="flex items-center justify-center lg:py-20">
+    <div class="bg-white p-8 rounded-lg shadow-2xl w-full max-w-3xl">
+        <h2 class="text-2xl font-bold mb-6">Send Money Online</h2>
+        <form>
+            <div class="flex mb-4 space-x-4">
+                <div class="flex-1">
+                    <label for="sender-country" class="block text-gray-700 mb-2">Sender Country:</label>
+                    <select id="sender-country" name="sender-country" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                        <option value="">Select Country</option>
+                        <option value="us">United States</option>
+                        <option value="ca">Canada</option>
+                        <option value="uk">United Kingdom</option>
+                        <option value="au">Australia</option>
+                        <!-- Add more countries as needed -->
+                    </select>
+                </div>
+                <div class="flex-1">
+                    <label for="receiver-country" class="block text-gray-700 mb-2">Receiver Country:</label>
+                    <select id="receiver-country" name="receiver-country" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                        <option value="">Select Country</option>
+                        <option value="us">United States</option>
+                        <option value="ca">Canada</option>
+                        <option value="uk">United Kingdom</option>
+                        <option value="au">Australia</option>
+                        <!-- Add more countries as needed -->
+                    </select>
+                </div>
+            </div>
+            <div class="flex mb-6 space-x-4">
+                <div class="flex-1">
+                    <label for="amount" class="block text-gray-700 mb-2">Amount:</label>
+                    <input type="number" id="amount" name="amount" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                </div>
+                <div class="flex-1"></div> <!-- Empty div to maintain alignment -->
+            </div>
+            <hr class="my-6 border-gray-300">
+            <div>
+                <p class="text-gray-700 mb-2 font-bold">How does your receiver want the money?</p>
+                <div class="mb-4">
+                    <input type="radio" id="send-to-multiple-receivers" name="send-to-multiple-receivers" class="mr-2">
+                    <label for="send-to-multiple-receivers" class="text-gray-700">Send money to multiple receivers</label>
+                </div>
+            </div>
+            
+            <!-- Other form fields remain unchanged -->
 
+            <hr class="my-6 border-gray-300">
+            <div>
+                <p class="text-gray-700 mb-2 font-bold">How would you like to pay?</p>
+                <div class="flex space-x-4 mb-4">
+                    <div>
+                        <input type="radio" id="account-payment" name="payment-method" value="account" class="mr-2" required>
+                        <label for="account-payment" class="text-gray-700">Account Payment</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="voucher" name="payment-method" value="voucher" class="mr-2" required>
+                        <label for="voucher" class="text-gray-700">Voucher</label>
+                    </div>
+                </div>
+            </div>
+            <!-- Account payment details -->
+            <div id="account-payment-details" style="display: none;">
+                <div class="flex space-x-4 mb-4">
+                    <div class="flex-1">
+                        <label for="account-number" class="block text-gray-700 mb-2">Enter Account Number:</label>
+                        <input type="text" id="account-number" name="account-number" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    <div class="flex-1">
+                        <label for="swift-code" class="block text-gray-700 mb-2">Enter Swift Code:</label>
+                        <input type="text" id="swift-code" name="swift-code" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                </div>
+            </div>
+            <!-- Voucher details -->
+            <div id="voucher-details" style="display: none;">
+                <div class="flex space-x-4 mb-4">
+                    <div class="flex-1">
+                        <label for="receiver-address" class="block text-gray-700 mb-2">Receiver Address:</label>
+                        <input type="text" id="receiver-address" name="receiver-address" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    <div class="flex-1">
+                        <label for="receiver-country-voucher" class="block text-gray-700 mb-2">Receiver Country:</label>
+                        <select id="receiver-country-voucher" name="receiver-country-voucher" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                            <option value="">Select Country</option>
+                            <option value="us">United States</option>
+                            <option value="ca">Canada</option>
+                            <option value="uk">United Kingdom</option>
+                            <option value="au">Australia</option>
+                            <!-- Add more countries as needed -->
+                        </select>
+                    </div>
+                </div>
+                <div class="flex space-x-4 mb-4">
+                    <div class="flex-1">
+                        <label for="receiver-state" class="block text-gray-700 mb-2">Receiver State:</label>
+                        <input type="text" id="receiver-state" name="receiver-state" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    <div class="flex-1">
+                        <label for="receiver-city" class="block text-gray-700 mb-2">Receiver City:</label>
+                        <input type="text" id="receiver-city" name="receiver-city" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                </div>
+                <div class="flex space-x-4 mb-4">
+                    <div class="flex-1">
+                        <label for="receiver-phone" class="block text-gray-700 mb-2">Receiver Phone Number:</label>
+                        <input type="text" id="receiver-phone" name="receiver-phone" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                </div>
+            </div>
+            <hr class="my-6 border-gray-300">
+            <div id="receiver-information" style="display: none;">
+                <p class="text-gray-700 mb-2 font-bold">Receiver Information</p>
+                <div class="receiver-fields-container">
+                    <!-- Initial receiver fieldset here if needed -->
+                </div>
+                <div class="flex justify-between mb-4">
+                    <button type="button" id="add-receiver" class="w-1/2 bg-blue-500 text-white p-2 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-700 mr-2">Add Another Receiver</button>
+                    <button type="button" id="delete-receiver" class="w-1/2 bg-red-500 text-white p-2 rounded-lg hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-700">Delete</button>
+                </div>
+            </div>
+            <!-- Submit button -->
+            <div>
+                <button type="submit" class="w-full bg-blue-500 text-white p-3 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-700">Send Money</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    document.getElementById('send-to-multiple-receivers').addEventListener('change', function() {
+        var receiverInformation = document.getElementById('receiver-information');
+        receiverInformation.style.display = this.checked ? 'block' : 'none';
+    });
+
+    document.getElementById('add-receiver').addEventListener('click', function() {
+        var receiverFieldsContainer = document.querySelector('.receiver-fields-container');
+        var receiverFieldsetCount = document.querySelectorAll('.receiver-fieldset').length + 1;
+
+        var newFieldset = document.createElement('div');
+        newFieldset.classList.add('receiver-fieldset');
+
+        newFieldset.innerHTML = `
+            <div class="flex space-x-4 mb-4">
+                <div class="flex-1">
+                    <label for="receiver-account-number-${receiverFieldsetCount}" class="block text-gray-700 mb-2">Receiver Account Number:</label>
+                    <input type="text" id="receiver-account-number-${receiverFieldsetCount}" name="receiver-account-number-${receiverFieldsetCount}" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+                <div class="flex-1">
+                    <label for="enter-swift-code-${receiverFieldsetCount}" class="block text-gray-700 mb-2">Enter Swift Code:</label>
+                    <input type="text" id="enter-swift-code-${receiverFieldsetCount}" name="enter-swift-code-${receiverFieldsetCount}" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+                <div class="flex-1">
+                    <label for="receiver-name-${receiverFieldsetCount}" class="block text-gray-700 mb-2">Receiver Name:</label>
+                    <input type="text" id="receiver-name-${receiverFieldsetCount}" name="receiver-name-${receiverFieldsetCount}" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+            </div>
+        `;
+
+        receiverFieldsContainer.appendChild(newFieldset);
+    });
+
+    document.getElementById('delete-receiver').addEventListener('click', function() {
+        var receiverFieldsContainer = document.querySelector('.receiver-fields-container');
+        var receiverFieldsets = document.querySelectorAll('.receiver-fieldset');
+        if (receiverFieldsets.length > 0) {
+            receiverFieldsContainer.removeChild(receiverFieldsets[receiverFieldsets.length - 1]);
+        }
+    });
+
+    document.getElementById('account-payment').addEventListener('change', function() {
+        var accountPaymentDetails = document.getElementById('account-payment-details');
+        accountPaymentDetails.style.display = this.checked ? 'block' : 'none';
+    });
+
+    document.getElementById('voucher').addEventListener('change', function() {
+        var voucherDetails = document.getElementById('voucher-details');
+        voucherDetails.style.display = this.checked ? 'block' : 'none';
+    });
+    document.querySelectorAll('input[type=radio][name=payment-method]').forEach(function(radio) {
+        radio.addEventListener('change', function() {
+            var accountPaymentDetails = document.getElementById('account-payment-details');
+            var voucherDetails = document.getElementById('voucher-details');
+
+            if (this.value === 'account') {
+                accountPaymentDetails.style.display = 'block';
+                voucherDetails.style.display = 'none';
+            } else if (this.value === 'voucher') {
+                accountPaymentDetails.style.display = 'none';
+                voucherDetails.style.display = 'block';
+            }
+        });
+    });
     
-</body>
-</html>
+
+</script>
+
+
+      
 {% endblock content %}
 
