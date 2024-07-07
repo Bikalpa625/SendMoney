@@ -63,10 +63,26 @@ def contact(request):
             '''
             sender_email = email
             recipient_list = [settings.EMAIL_HOST_USER]
-            send_mail(subject, message_body, sender_email, recipient_list)
-            form.save()
-            success = True
-            form = ContactForm()
+            try:
+                # Send email to admin
+                send_mail(subject, message_body, sender_email, recipient_list)
+
+                # Send automated response to user
+                user_subject = "Thank you for contacting us"
+                user_message_body = f'''
+                    Hi {first_name},
+
+                    Thank you for reaching out to us. We have received your message and will get back to you soon.
+
+                    Best regards,
+                    Hamepage Team
+                '''
+                send_mail(user_subject, user_message_body, settings.EMAIL_HOST_USER, [email])
+
+                success = True
+                form = ContactForm()  # Clear the form after successful submission
+            except Exception as e:
+                print(f"Error sending email: {e}")
     else:
         form = ContactForm()
     return render(request, 'sendmoney/contact.html', {'form': form, 'success': success})
